@@ -1,6 +1,6 @@
-# LEMP server for php development
+# Bookself
 
-This is a template for any php development needs
+A reading management app
 
 ## Set up
 ``docker-compose up`` in the .yml folder.
