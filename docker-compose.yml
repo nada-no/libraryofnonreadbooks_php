@@ -14,12 +14,14 @@ services:
         volumes: 
             - ./app:/app
     mysql: 
-        image: mariadb:latest
+        build:
+            context: .
+            dockerfile: MARIADB.Dockerfile
         environment:
             MYSQL_ROOT_PASSWORD: 'secret'
             MYSQL_USER: 'nada'
             MYSQL_PASSWORD: 'secret'
-            MYSQL_DATABASE: 'database'
+            MYSQL_DATABASE: 'bookself'
         volumes: 
             - mysqldata:/var/lib/mysql
         ports: 

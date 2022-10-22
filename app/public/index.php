@@ -1,8 +1,28 @@
 <?php
-$pdo = new PDO('mysql:dbname=database;host=mysql', 'nada', 'secret', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+include_once('commons/header.php');
+?>
 
-$query = $pdo->query('SHOW VARIABLES like "version"');
+<main>
+    <p><a href="newBook.php">Enter new book</a></p>
 
-$row = $query->fetch();
-
-echo 'MySQL version:' . $row['Value'];
+    <div>
+        <ul>
+            <?php
+            foreach ($books as $book) {
+                if($book['toread'] == 1){
+            ?>
+                <li><?= $book['title'] ?></li>
+            <?php
+                }else{
+                    ?>
+                    <li><del><?= $book['title'] ?></del></li>
+                    <?php
+                }
+            }
+            ?>
+        </ul>
+    </div>
+</main>
+<?php
+include_once('commons/footer.php');
+?>
