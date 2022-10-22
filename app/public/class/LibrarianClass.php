@@ -17,6 +17,15 @@ class Librarian
         return $books;
     }
 
+    function getOne($id){
+        $book = $this->bookself->getOneBook($id);
+        return $book;
+    }
+
+    function updateOne($book){
+        $this->bookself->updateBook($book);
+    }
+
     function getStadistics(){
         $books = count($this->bookself->getAllBooks());
         $unread = count($this->bookself->getUnreadBooks());

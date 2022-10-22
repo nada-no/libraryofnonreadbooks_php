@@ -5,22 +5,25 @@ if (isset($_POST['title']) && isset($_POST['author'])) {
     $book =  array(
         "title" => $_POST['title'],
         "author" => $_POST['author'],
-        "toread" => isset($_POST['toread'])? 1 : 0
+        "readed" => isset($_POST['readed']) ? 0 : 1
     );
     $Librarian->bookself->store($book);
-   echo "<p>Book stored!</p>";
+    echo "<p>Book stored!</p>";
 }
 ?>
-<p><a href="index.php" class="btn btn-primary ms-3">See list of books</a></p>
-<form action="newBook.php" method="POST" enctype="multipart/form-data" class="container">
-    <label for="title">Title</label>
-    <input type="text" name="title" id="title">
-    <label for="author">Author</label>
-    <input type="text" name="author" id="author">
-    <label for="toread">To Read</label>
-    <input type="checkbox" name="toread" id="toread" value=1>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<main>
+    <p><a href="index.php" class="btn btn-primary ms-3">See list of books</a></p>
+    <form action="newBook.php" method="POST" enctype="multipart/form-data" class="container">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title">
+        <label for="author">Author</label>
+        <input type="text" name="author" id="author">
+        <label for="readed">Read</label>
+        <input type="checkbox" name="readed" id="readed" value=1>
+        <br>
+        <button type="submit" class="btn btn-primary m-1">Submit</button>
+    </form>
+</main>
 <?php
 include_once('commons/footer.php');
 ?>

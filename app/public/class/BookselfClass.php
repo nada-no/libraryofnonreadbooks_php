@@ -47,10 +47,21 @@ class Bookself
         return $books;
     }
 
+    function getOneBook($id){
+        $this->connect();
+        $query = $this->pdo->prepare(
+            "select * from books where id=$id"
+        );
+        $query->execute();
+        $book = $query->fetchAll();
+        $this->disconnect();
+        return $book[0];  //return only the first book (theres no more books)
+    }
+
     function getUnreadBooks(){
         $this->connect();
         $query = $this->pdo->prepare(
-            'select * from books where toread = 1'
+            'select * from books where readed = 0'
         );
         $query->execute();
         $books = $query->fetchAll();
@@ -64,12 +75,20 @@ class Bookself
     {
         try {
             $this->connect();
-            // $sql =
-            //     'insert into books (title,author,readed) values (?,?,?)';
+            $sql=$this->pdo->prepare('insert into books (title,author,readed) values (?,?,?)');
+            $sql->execute([$book['title'],$book['author'],$book['readed']]);
 
-            // $this->pdo->exec($sql);
-            $sql=$this->pdo->prepare('insert into books (title,author,toread) values (?,?,?)');
-            $sql->execute([$book['title'],$book['author'],$book['toread']]);
+        } catch (PDOException $error) {
+            echo "<br>" . $error->getMessage();
+        }
+        $this->disconnect();
+    }
+
+    function updateBook($book) {
+        try {
+            $this->connect();
+            $sql=$this->pdo->prepare('update books set title=?, author=?, readed=? where id=?');
+            $sql->execute([$book['title'],$book['author'],$book['readed'],$book['id']]);
 
         } catch (PDOException $error) {
             echo "<br>" . $error->getMessage();
