@@ -47,6 +47,19 @@ class Bookself
         return $books;
     }
 
+    function getUnreadBooks(){
+        $this->connect();
+        $query = $this->pdo->prepare(
+            'select * from books where toread = 1'
+        );
+        $query->execute();
+        $books = $query->fetchAll();
+        $this->disconnect();
+
+
+        return $books;
+    }
+
     function store($book)
     {
         try {

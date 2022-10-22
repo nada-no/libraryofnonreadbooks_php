@@ -11,15 +11,15 @@ if (isset($_POST['title']) && isset($_POST['author'])) {
    echo "<p>Book stored!</p>";
 }
 ?>
-<p><a href="index.php">See list of books</a></p>
-<form action="newBook.php" method="POST" enctype="multipart/form-data">
+<p><a href="index.php" class="btn btn-primary ms-3">See list of books</a></p>
+<form action="newBook.php" method="POST" enctype="multipart/form-data" class="container">
     <label for="title">Title</label>
     <input type="text" name="title" id="title">
     <label for="author">Author</label>
     <input type="text" name="author" id="author">
     <label for="toread">To Read</label>
     <input type="checkbox" name="toread" id="toread" value=1>
-    <button type="submit">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <?php
 include_once('commons/footer.php');
