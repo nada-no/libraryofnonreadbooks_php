@@ -1,6 +1,7 @@
-# Bookself
+# Library of non read books
 
-A reading management app
+A reading management app to save info about your future reads, the books you already read and more.
+Includes an import feature to parse big amounts of data in a .txt file with title, author, and read state (0 unread, 1 read) divided by "-".
 
 ## Set up
 ``docker-compose up`` in the .yml folder.
