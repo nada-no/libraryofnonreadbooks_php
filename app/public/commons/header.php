@@ -19,4 +19,9 @@
         ?>
 
         <h1 class="bd-title m-3">Library of non read books</h1>
+        <div class="container">
+            <p class="d-inline"><a href="index.php" class="btn btn-primary ms-3 my-2">Go to the list</a></p>
+            <p class="d-inline"><a href="newBook.php" class="btn btn-primary ms-3 my-2">Enter new book</a></p>
+            <p class="d-inline"><a href="import.php" class="btn btn-primary ms-3 my-2">Import list file</a></p>
+        </div>
     </header>

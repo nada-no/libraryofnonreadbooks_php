@@ -22,7 +22,6 @@ if (!empty($_GET['id'])) {
 
 ?>
 <main>
-    <p><a href="index.php" class="btn btn-primary ms-3">See list of books</a></p>
     <form action="modifyBook.php?id=<?= $book['id']?>" method="POST" enctype="multipart/form-data" class="container">
         <label for="title">Title</label>
         <input type="text" name="title" id="title" value="<?= $book['title'] ?>">

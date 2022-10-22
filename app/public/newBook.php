@@ -12,7 +12,6 @@ if (isset($_POST['title']) && isset($_POST['author'])) {
 }
 ?>
 <main>
-    <p><a href="index.php" class="btn btn-primary ms-3">See list of books</a></p>
     <form action="newBook.php" method="POST" enctype="multipart/form-data" class="container">
         <label for="title">Title</label>
         <input type="text" name="title" id="title">
