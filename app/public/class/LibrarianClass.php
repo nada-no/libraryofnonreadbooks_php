@@ -51,15 +51,15 @@ class Librarian
         while(!feof($reader)){
             $line = fgets($reader);
             $book = explode("-",$line);
+            if(!isset($book[1])) $book[1] = "";//if theres no author leave it blank
             if(!isset($book[2])) $book[2] = 0; //if theres no info about the read status, set it to unread
-            var_dump($book);
             $book = array(
-                "title" => $book[0],
-                "author"=> $book[1],
+                "title" => ucfirst(trim($book[0])),
+                "author"=> ucwords(trim($book[1])),
                 "readed"=> $book[2]
             );
+            // var_dump($book);
             $this->bookself->store($book);
-
         }
         fclose($reader);
     }

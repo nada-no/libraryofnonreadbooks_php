@@ -5,7 +5,7 @@ if (isset($_POST['title']) && isset($_POST['author'])) {
     $book =  array(
         "title" => $_POST['title'],
         "author" => $_POST['author'],
-        "readed" => isset($_POST['readed']) ? 0 : 1
+        "readed" => isset($_POST['readed']) ? 1 : 0
     );
     $Librarian->bookself->store($book);
     echo "<p>Book stored!</p>";
